@@ -1,0 +1,68 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url 'http://10.0.50.72:8081/nexus/content/repositories/AndroidRespoistory' }
+
+        google()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+        //对maven插件进行修改可以兼容android
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+        //greenDao
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.0.0'
+    }
+    configurations.all {
+        resolutionStrategy.cacheDynamicVersionsFor 10, 'seconds'// 'minutes'
+        resolutionStrategy.cacheChangingModulesFor 10, 'seconds'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url 'http://10.0.50.72:8081/nexus/content/repositories/AndroidRespoistory/' }
+        google()
+    }
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = JavaVersion.VERSION_1_7
+        targetCompatibility = JavaVersion.VERSION_1_7
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    //android
+    compileSdkVersion = 26
+    buildToolsVersion = "26.0.2"
+    minSdkVersion = 17
+    targetSdkVersion = 26
+    //java jdk
+    JDKVersion = 1.7
+    //Version
+    supportLibrary = '26.1.0'
+    //supportLibraries dependencies
+    supportDependencies = [
+            supportAnnotation  : "com.android.support:support-annotations:${supportLibrary}",
+            supportAppcompat   : "com.android.support:appcompat-v7:${supportLibrary}",
+            supportDesign      : "com.android.support:design:${supportLibrary}",
+            supportRecyclerview: "com.android.support:recyclerview-v7:${supportLibrary}",
+    ]
+    //thirdParty
+    ARouter = [
+            api    : "com.alibaba:arouter-api:1.2.4",
+            compiler: "com.alibaba:arouter-compiler:1.1.4"
+    ]
+
+
+}
