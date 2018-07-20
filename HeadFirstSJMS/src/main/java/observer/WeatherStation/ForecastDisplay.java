@@ -1,7 +1,6 @@
 package observer.WeatherStation;
 
 import java.util.*;
-import java.util.Observer;
 
 public class ForecastDisplay implements Observer, DisplayElement {
 	private float currentPressure = 29.92f;  
@@ -29,10 +28,5 @@ public class ForecastDisplay implements Observer, DisplayElement {
 		} else if (currentPressure < lastPressure) {
 			System.out.println("Watch out for cooler, rainy weather");
 		}
-	}
-	
-	@Override
-	public void update(Observable o, Object arg) {
-	
 	}
 }

@@ -1,7 +1,6 @@
 package observer.WeatherStation;
 
 import java.util.*;
-import java.util.Observer;
 
 public class WeatherData implements Subject {
 	private ArrayList observers;
@@ -36,8 +35,8 @@ public class WeatherData implements Subject {
 	
 	public void notifyObservers() {
 		for (int i = 0; i < observers.size(); i++) {
-			java.util.Observer observer = (Observer)observers.get(i);
-//			observer.update(temperature, humidity, pressure);
+			observer.WeatherStation.Observer observer = (Observer)observers.get(i);
+			observer.update(temperature, humidity, pressure);
 		}
 	}
 	

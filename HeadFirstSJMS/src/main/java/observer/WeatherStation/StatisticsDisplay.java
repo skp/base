@@ -1,7 +1,6 @@
 package observer.WeatherStation;
 
 import java.util.*;
-import java.util.Observer;
 
 public class StatisticsDisplay implements Observer, DisplayElement {
 	private float maxTemp = 0.0f;
@@ -35,8 +34,4 @@ public class StatisticsDisplay implements Observer, DisplayElement {
 			+ "/" + maxTemp + "/" + minTemp);
 	}
 	
-	@Override
-	public void update(Observable o, Object arg) {
-	
-	}
 }

@@ -7,7 +7,7 @@ public class RemoteLoader {
  
 		Light livingRoomLight = new Light("Living Room");
 		Light kitchenLight = new Light("Kitchen");
-		CeilingFan ceilingFan= new CeilingFan("Living Room");
+		CeilingFan ceilingFan = new CeilingFan("Living Room");
 		GarageDoor garageDoor = new GarageDoor("");
 		Stereo stereo = new Stereo("Living Room");
   
@@ -42,6 +42,7 @@ public class RemoteLoader {
   
 		System.out.println(remoteControl);
  
+		remoteControl.onButtonWasPushed(4);
 		remoteControl.onButtonWasPushed(0);
 		remoteControl.offButtonWasPushed(0);
 		remoteControl.onButtonWasPushed(1);
