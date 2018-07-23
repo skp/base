@@ -1,6 +1,7 @@
 package command.remote;
 
 public class LivingroomLightOnCommand implements Command {
+
 	Light light;
 
 	public LivingroomLightOnCommand(Light light) {

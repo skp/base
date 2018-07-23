@@ -1,16 +1,17 @@
 package proxy.gumballmonitor;
 
 public class GumballMachine {
+
 	State soldOutState;
 	State noQuarterState;
 	State hasQuarterState;
 	State soldState;
 	State winnerState;
- 
+
 	State state = soldOutState;
 	int count = 0;
- 	String location;
- 
+	String location;
+
 	public GumballMachine(String location, int count) {
 		soldOutState = new SoldOutState(this);
 		noQuarterState = new NoQuarterState(this);
@@ -19,20 +20,20 @@ public class GumballMachine {
 		winnerState = new WinnerState(this);
 
 		this.count = count;
- 		if (count > 0) {
+		if (count > 0) {
 			state = noQuarterState;
-		} 
+		}
 		this.location = location;
 	}
- 
+
 	public void insertQuarter() {
 		state.insertQuarter();
 	}
- 
+
 	public void ejectQuarter() {
 		state.ejectQuarter();
 	}
- 
+
 	public void turnCrank() {
 		state.turnCrank();
 		state.dispense();
@@ -41,14 +42,14 @@ public class GumballMachine {
 	void setState(State state) {
 		this.state = state;
 	}
- 
+
 	void releaseBall() {
 		System.out.println("A gumball comes rolling out the slot...");
 		if (count != 0) {
 			count = count - 1;
 		}
 	}
- 
+
 	public int getCount() {
 		return count;
 	}
@@ -58,34 +59,34 @@ public class GumballMachine {
 		state = noQuarterState;
 	}
 
-    public State getState() {
-        return state;
-    }
- 
-    public String getLocation() {
-        return location;
-    }
- 
-    public State getSoldOutState() {
-        return soldOutState;
-    }
+	public State getState() {
+		return state;
+	}
 
-    public State getNoQuarterState() {
-        return noQuarterState;
-    }
+	public String getLocation() {
+		return location;
+	}
 
-    public State getHasQuarterState() {
-        return hasQuarterState;
-    }
+	public State getSoldOutState() {
+		return soldOutState;
+	}
 
-    public State getSoldState() {
-        return soldState;
-    }
+	public State getNoQuarterState() {
+		return noQuarterState;
+	}
 
-    public State getWinnerState() {
-        return winnerState;
-    }
- 
+	public State getHasQuarterState() {
+		return hasQuarterState;
+	}
+
+	public State getSoldState() {
+		return soldState;
+	}
+
+	public State getWinnerState() {
+		return winnerState;
+	}
+
 	public String toString() {
 		StringBuffer result = new StringBuffer();
 		result.append("\nMighty Gumball, Inc.");

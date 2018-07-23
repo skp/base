@@ -1,6 +1,7 @@
 package factory.pizzaaf;
 
 public abstract class Pizza {
+
 	String name;
 
 	Dough dough;
@@ -50,7 +51,7 @@ public abstract class Pizza {
 		if (veggies != null) {
 			for (int i = 0; i < veggies.length; i++) {
 				result.append(veggies[i]);
-				if (i < veggies.length-1) {
+				if (i < veggies.length - 1) {
 					result.append(", ");
 				}
 			}

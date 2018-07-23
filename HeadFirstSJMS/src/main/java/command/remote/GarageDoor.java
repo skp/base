@@ -1,6 +1,7 @@
 package command.remote;
 
 public class GarageDoor {
+
 	String location;
 
 	public GarageDoor(String location) {

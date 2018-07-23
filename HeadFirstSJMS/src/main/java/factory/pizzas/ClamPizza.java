@@ -1,6 +1,7 @@
 package factory.pizzas;
 
 public class ClamPizza extends Pizza {
+
 	public ClamPizza() {
 		name = "Clam Pizza";
 		dough = "Thin crust";

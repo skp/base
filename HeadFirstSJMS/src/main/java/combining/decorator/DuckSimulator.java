@@ -1,6 +1,7 @@
 package combining.decorator;
 
 public class DuckSimulator {
+
 	public static void main(String[] args) {
 		DuckSimulator simulator = new DuckSimulator();
 		simulator.simulate();
@@ -21,8 +22,7 @@ public class DuckSimulator {
 		simulate(rubberDuck);
 		simulate(gooseDuck);
 
-		System.out.println("The ducks quacked " + 
-		                   QuackCounter.getQuacks() + " times");
+		System.out.println("The ducks quacked " + QuackCounter.getQuacks() + " times");
 	}
 
 	void simulate(Quackable duck) {

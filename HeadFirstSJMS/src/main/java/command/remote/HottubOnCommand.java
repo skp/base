@@ -1,6 +1,7 @@
 package command.remote;
 
 public class HottubOnCommand implements Command {
+
 	Hottub hottub;
 
 	public HottubOnCommand(Hottub hottub) {

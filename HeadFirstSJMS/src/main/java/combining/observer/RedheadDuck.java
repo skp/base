@@ -1,6 +1,7 @@
 package combining.observer;
 
 public class RedheadDuck implements Quackable {
+
 	Observable observable;
 
 	public RedheadDuck() {

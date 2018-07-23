@@ -1,6 +1,7 @@
 package command.party;
 
 public class Stereo {
+
 	String location;
 
 	public Stereo(String location) {

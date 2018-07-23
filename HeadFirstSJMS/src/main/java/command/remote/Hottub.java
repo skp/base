@@ -1,6 +1,7 @@
 package command.remote;
 
 public class Hottub {
+
 	boolean on;
 	int temperature;
 
@@ -52,5 +53,4 @@ public class Hottub {
 		temperature = 98;
 		System.out.println("Hottub is cooling to 98 degrees");
 	}
-
 }

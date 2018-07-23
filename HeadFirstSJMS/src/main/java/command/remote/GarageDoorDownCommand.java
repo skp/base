@@ -1,6 +1,7 @@
 package command.remote;
 
 public class GarageDoorDownCommand implements Command {
+
 	GarageDoor garageDoor;
 
 	public GarageDoorDownCommand(GarageDoor garageDoor) {

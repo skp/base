@@ -1,6 +1,7 @@
 package command.party;
 
 public class StereoOnCommand implements Command {
+
 	Stereo stereo;
 
 	public StereoOnCommand(Stereo stereo) {

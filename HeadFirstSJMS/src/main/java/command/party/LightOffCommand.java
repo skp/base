@@ -1,6 +1,7 @@
 package command.party;
 
 public class LightOffCommand implements Command {
+
 	Light light;
 
 	public LightOffCommand(Light light) {

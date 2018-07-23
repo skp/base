@@ -1,6 +1,7 @@
 package command.remote;
 
 public class TV {
+
 	String location;
 	int channel;
 

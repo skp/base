@@ -1,6 +1,7 @@
 package facade.hometheater;
 
 public class HomeTheaterFacade {
+	
 	Amplifier amp;
 	Tuner tuner;
 	DvdPlayer dvd;
@@ -9,16 +10,10 @@ public class HomeTheaterFacade {
 	TheaterLights lights;
 	Screen screen;
 	PopcornPopper popper;
- 
-	public HomeTheaterFacade(Amplifier amp, 
-				 Tuner tuner, 
-				 DvdPlayer dvd, 
-				 CdPlayer cd, 
-				 Projector projector, 
-				 Screen screen,
-				 TheaterLights lights,
-				 PopcornPopper popper) {
- 
+	
+	public HomeTheaterFacade(Amplifier amp, Tuner tuner, DvdPlayer dvd, CdPlayer cd, Projector projector, Screen screen,
+			TheaterLights lights, PopcornPopper popper) {
+		
 		this.amp = amp;
 		this.tuner = tuner;
 		this.dvd = dvd;
@@ -28,7 +23,7 @@ public class HomeTheaterFacade {
 		this.lights = lights;
 		this.popper = popper;
 	}
- 
+	
 	public void watchMovie(String movie) {
 		System.out.println("Get ready to watch a movie...");
 		popper.on();
@@ -44,8 +39,7 @@ public class HomeTheaterFacade {
 		dvd.on();
 		dvd.play(movie);
 	}
- 
- 
+	
 	public void endMovie() {
 		System.out.println("Shutting movie theater down...");
 		popper.off();
@@ -57,7 +51,7 @@ public class HomeTheaterFacade {
 		dvd.eject();
 		dvd.off();
 	}
-
+	
 	public void listenToCd(String cdTitle) {
 		System.out.println("Get ready for an audiopile experence...");
 		lights.on();
@@ -68,7 +62,7 @@ public class HomeTheaterFacade {
 		cd.on();
 		cd.play(cdTitle);
 	}
-
+	
 	public void endCd() {
 		System.out.println("Shutting down CD...");
 		amp.off();
@@ -76,7 +70,7 @@ public class HomeTheaterFacade {
 		cd.eject();
 		cd.off();
 	}
-
+	
 	public void listenToRadio(double frequency) {
 		System.out.println("Tuning in the airwaves...");
 		tuner.on();
@@ -85,7 +79,7 @@ public class HomeTheaterFacade {
 		amp.setVolume(5);
 		amp.setTuner(tuner);
 	}
-
+	
 	public void endRadio() {
 		System.out.println("Shutting down the tuner...");
 		tuner.off();

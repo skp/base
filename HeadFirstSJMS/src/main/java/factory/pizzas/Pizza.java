@@ -3,6 +3,7 @@ package factory.pizzas;
 import java.util.ArrayList;
 
 abstract public class Pizza {
+
 	String name;
 	String dough;
 	String sauce;
@@ -35,7 +36,7 @@ abstract public class Pizza {
 		display.append(dough + "\n");
 		display.append(sauce + "\n");
 		for (int i = 0; i < toppings.size(); i++) {
-			display.append((String )toppings.get(i) + "\n");
+			display.append((String) toppings.get(i) + "\n");
 		}
 		return display.toString();
 	}

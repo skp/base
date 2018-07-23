@@ -1,14 +1,15 @@
 package proxy.gumball;
 
 import java.rmi.*;
- 
+
 public class GumballMonitor {
+	
 	GumballMachineRemote machine;
- 
+	
 	public GumballMonitor(GumballMachineRemote machine) {
 		this.machine = machine;
 	}
- 
+	
 	public void report() {
 		try {
 			System.out.println("Gumball Machine: " + machine.getLocation());

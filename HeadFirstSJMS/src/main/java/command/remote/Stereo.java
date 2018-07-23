@@ -1,6 +1,7 @@
 package command.remote;
 
 public class Stereo {
+
 	String location;
 
 	public Stereo(String location) {

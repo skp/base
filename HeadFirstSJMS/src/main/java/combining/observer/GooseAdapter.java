@@ -1,6 +1,7 @@
 package combining.observer;
 
 public class GooseAdapter implements Quackable {
+
 	Goose goose;
 	Observable observable;
 
@@ -8,7 +9,7 @@ public class GooseAdapter implements Quackable {
 		this.goose = goose;
 		observable = new Observable(this);
 	}
- 
+
 	public void quack() {
 		goose.honk();
 		notifyObservers();

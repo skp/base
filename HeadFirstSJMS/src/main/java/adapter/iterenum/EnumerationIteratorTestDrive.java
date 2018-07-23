@@ -3,7 +3,8 @@ package adapter.iterenum;
 import java.util.*;
 
 public class EnumerationIteratorTestDrive {
-	public static void main (String args[]) {
+	
+	public static void main(String args[]) {
 		Vector v = new Vector(Arrays.asList(args));
 		Iterator iterator = new EnumerationIterator(v.elements());
 		while (iterator.hasNext()) {

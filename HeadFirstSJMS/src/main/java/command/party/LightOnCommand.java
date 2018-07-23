@@ -1,6 +1,7 @@
 package command.party;
 
 public class LightOnCommand implements Command {
+
 	Light light;
 
 	public LightOnCommand(Light light) {

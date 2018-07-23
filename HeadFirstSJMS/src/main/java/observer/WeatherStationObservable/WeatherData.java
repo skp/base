@@ -1,9 +1,10 @@
 package observer.WeatherStationObservable;
-	
+
 import java.util.Observable;
 import java.util.Observer;
-	
+
 public class WeatherData extends Observable {
+
 	private float temperature;
 	private float humidity;
 	private float pressure;
