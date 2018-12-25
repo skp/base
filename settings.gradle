@@ -1,8 +1,8 @@
 rootProject.name = 'base'
-include 'HeadFirstSJMS'
+include 'HeadFirstDesignMode'
 include 'JVM'
 include 'JavaConcurrencyInpractice'
 include 'HeiHeiHei'
-include 'DSAA'
-include 'SpringLearn'
+include 'DataStructuresAndAlgorithmAnalysis'
+include 'JavaCore'
 

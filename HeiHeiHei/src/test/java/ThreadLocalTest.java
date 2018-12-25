@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.util.WeakHashMap;
+
 public class ThreadLocalTest {
 	private ThreadLocal<String> threadLocal;
 	

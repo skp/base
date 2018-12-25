@@ -34,7 +34,7 @@ public class CountDownLatchTest{
 			//初始化组件
 			System.out.println("Initializing component " + ID);
 			try{
-				Thread.sleep(500 * ID);
+				Thread.sleep(1000 * ID);
 			}catch(InterruptedException e){
 			}
 			System.out.println("Component " + ID + " initialized! latch:" + latch);
@@ -51,11 +51,11 @@ public class CountDownLatchTest{
 		CountDownLatch latch = new CountDownLatch(3);
 		//启动3个线程分别执行3个组件
 		ExecutorService service = Executors.newCachedThreadPool();
+		latch.await();//等待3个组件的初始化工作都完成
 		service.submit(new ComponentThread(latch, 1));
 		service.submit(new ComponentThread(latch, 2));
 		service.submit(new ComponentThread(latch, 3));
 		service.shutdown();
-		latch.await();//等待3个组件的初始化工作都完成
 		System.out.println("Server is up!");//当所需的三个组件都完成时,Server就可以继续了
 	}
 

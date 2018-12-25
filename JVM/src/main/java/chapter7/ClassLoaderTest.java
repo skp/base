@@ -1,5 +1,8 @@
 package chapter7;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 /**
  * 类加载器与instanceof关键字演示
  * 
@@ -27,10 +30,10 @@ public class ClassLoaderTest {
             }
         };
 
-        Object obj = myLoader.loadClass("org.fenixsoft.classloading.ClassLoaderTest").newInstance();
+        Object obj = myLoader.loadClass("chapter7.ClassLoaderTest").newInstance();
 
         System.out.println(obj.getClass());
-        System.out.println(obj instanceof org.fenixsoft.classloading.ClassLoaderTest);
+        System.out.println(obj instanceof chapter7.ClassLoaderTest);
     }
 }
 

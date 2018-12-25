@@ -20,17 +20,17 @@ public class StringTest {
 		System.out.println(sc==sd); //true
 	}
 	
-	@Test
-	public void test2() {
-		Instant b = Instant.now();
-		String s1="Heart";
-		StringBuffer sb=new StringBuffer();
-		for(int i=0;i<10000;i++){
-			sb.append(s1);
-		}
-		Instant e = Instant.now();
-		System.out.println(Duration.between(b, e).toMillis());
+//	@Test
+//	public void test2() {
+//		Instant b = Instant.now();
+//		String s1="Heart";
+//		StringBuffer sb=new StringBuffer();
+//		for(int i=0;i<10000;i++){
+//			sb.append(s1);
+//		}
+//		Instant e = Instant.now();
+//		System.out.println(Duration.between(b, e).toMillis());
 //		long endTime=System.currentTimeMillis();
 //		System.out.println(endTime-beginTime);
-	}
+//	}
 }
