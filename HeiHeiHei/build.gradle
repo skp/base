@@ -9,5 +9,69 @@ repositories {
 }
 
 dependencies {
+//    compile project ':DataStructuresAndAlgorithmAnalysis'
+    implementation 'com.rabbitmq:amqp-client:5.5.0'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.6'
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
+}
+
+defaultTasks 'clean1', 'run'
+
+task clean1 << {
+    println 'Default Cleaning!'
+}
+task run << {
+    println 'Default Running!'
+}
+task other << {
+    println "I'm not a default task!"
+}
+
+task hello {
+    doLast {
+        println 'Hello world!'
+    }
+}
+
+task hello1 << {
+    println 'Hello world!!'
+}
+
+task intro(dependsOn: hello) << {
+    println "I'm Gradle"
+}
+
+task upper << {
+    String someString = 'mY_nAmE'
+    println "Original: " + someString
+    println "Upper case: " + someString.toUpperCase()
+}
+
+4.times { counter ->
+    task "task$counter" << {
+        println "I'm task number $counter"
+    }
+}
+task0.dependsOn task2, task3
+
+
+task myTask {
+    ext.myProperty = "myValue"
+}
+
+task printTaskProperties << {
+    println myTask.myProperty
+}
+
+task loadfile << {
+    println file('../web').toString()
+    def files = file('web').listFiles().sort()
+    files.each { File file ->
+        if (file.isFile()) {
+            ant.loadfile(srcFile: file, property: file.name)
+            println " *** $file.name ***"
+            println "${ant.properties[file.name]}"
+        }
+    }
 }
