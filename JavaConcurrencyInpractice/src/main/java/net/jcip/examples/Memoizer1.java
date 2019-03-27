@@ -12,6 +12,18 @@ import net.jcip.annotations.*;
  *
  * @author Brian Goetz and Tim Peierls
  */
+interface Computable <A, V> {
+    V compute(A arg) throws InterruptedException;
+}
+
+class ExpensiveFunction
+        implements Computable<String, BigInteger> {
+    public BigInteger compute(String arg) {
+        // after deep thought...
+        return new BigInteger(arg);
+    }
+}
+
 public class Memoizer1 <A, V> implements Computable<A, V> {
     @GuardedBy("this") private final Map<A, V> cache = new HashMap<A, V>();
     private final Computable<A, V> c;
@@ -27,18 +39,5 @@ public class Memoizer1 <A, V> implements Computable<A, V> {
             cache.put(arg, result);
         }
         return result;
-    }
-}
-
-
-interface Computable <A, V> {
-    V compute(A arg) throws InterruptedException;
-}
-
-class ExpensiveFunction
-        implements Computable<String, BigInteger> {
-    public BigInteger compute(String arg) {
-        // after deep thought...
-        return new BigInteger(arg);
     }
 }

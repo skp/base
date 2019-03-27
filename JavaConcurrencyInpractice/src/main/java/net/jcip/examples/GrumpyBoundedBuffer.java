@@ -10,7 +10,7 @@ import net.jcip.annotations.*;
  * @author Brian Goetz and Tim Peierls
  */
 @ThreadSafe
-        public class GrumpyBoundedBuffer <V> extends BaseBoundedBuffer<V> {
+public class GrumpyBoundedBuffer <V> extends BaseBoundedBuffer<V> {
     public GrumpyBoundedBuffer() {
         this(100);
     }
@@ -29,6 +29,18 @@ import net.jcip.annotations.*;
         if (isEmpty())
             throw new BufferEmptyException();
         return doTake();
+    }
+
+    public static void main(String[] args) {
+        GrumpyBoundedBuffer g = new GrumpyBoundedBuffer();
+        for (int i = 0; i < 100; i++) {
+            g.put(i);
+        }
+        g.take();
+        g.put(1);
+        g.put(1);
+
+
     }
 }
 

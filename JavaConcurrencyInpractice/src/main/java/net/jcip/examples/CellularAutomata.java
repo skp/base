@@ -20,7 +20,7 @@ public class CellularAutomata {
         this.barrier = new CyclicBarrier(count,
                 new Runnable() {
                     public void run() {
-                        mainBoard.commitNewValues();
+                        mainBoard.commitNewValues(); // 这个方法由最后一个release的线程执行.
                     }});
         this.workers = new Worker[count];
         for (int i = 0; i < count; i++)

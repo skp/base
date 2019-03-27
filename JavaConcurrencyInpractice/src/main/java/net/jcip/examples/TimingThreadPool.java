@@ -14,7 +14,11 @@ import java.util.logging.*;
 public class TimingThreadPool extends ThreadPoolExecutor {
 
     public TimingThreadPool() {
-        super(1, 1, 0L, TimeUnit.SECONDS, null);
+        super(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        log.setLevel(Level.ALL);
+        Handler handler = new ConsoleHandler();
+        handler.setLevel(Level.ALL);
+        log.addHandler(handler);
     }
 
     private final ThreadLocal<Long> startTime = new ThreadLocal<Long>();
@@ -44,9 +48,16 @@ public class TimingThreadPool extends ThreadPoolExecutor {
     protected void terminated() {
         try {
             log.info(String.format("Terminated: avg time=%dns",
-                    totalTime.get() / numTasks.get()));
+                    totalTime.get()  / numTasks.get()));
         } finally {
             super.terminated();
         }
+    }
+
+    public static void main(String[] args) {
+        TimingThreadPool pool = new TimingThreadPool();
+        pool.execute(()-> {
+            System.out.println("aa");
+        });
     }
 }

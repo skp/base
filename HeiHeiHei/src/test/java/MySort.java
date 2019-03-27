@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Random;
+
 public class MySort {
 	
 	public static void bubbleSort(Integer[] arr) {
@@ -81,7 +84,7 @@ public class MySort {
 	}
 	
 	public static void quickSort(Integer[] arr) {
-		quickSort(arr, 0, arr.length - 1);
+		quickSort1(arr, 0, arr.length - 1);
 	}
 	
 	private static void quickSort(Integer[] arr, int low, int high) {
@@ -140,7 +143,8 @@ public class MySort {
 				swap(arr, i, j);
 			}
 		}
-		
+		Arrays.stream(arr).forEach((num)-> System.out.print(num + ", "));
+		System.out.println();
 		swap(arr, low, i);
 		
 		quickSort1(arr, low, i - 1);
@@ -161,7 +165,7 @@ public class MySort {
 		}
 		System.out.println("Finished checksort");
 	}
-	
+
 	private static final int NUM_ITEMS = 100;
 	private static int theSeed = 1;
 	
@@ -176,10 +180,10 @@ public class MySort {
 			// Random.permute(arr);
 //			MySort.bubbleSort(arr);
 			MySort.quickSort(arr);
-			for (int n : arr) {
-				System.out.print(n + ", ");
-			}
-			checkSort(arr);
+			// for (int n : arr) {
+			// 	System.out.print(n + ", ");
+			// }
+			// checkSort(arr);
 			
 			//			Random.permute( arr );
 			//			Sort.quickSelect( arr, NUM_ITEMS / 2 );

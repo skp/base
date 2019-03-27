@@ -71,6 +71,7 @@ public class ProducerConsumer {
 
         public void indexFile(File file) {
             // Index the file...
+            System.out.println(file.getName());
         };
     }
 
@@ -88,7 +89,13 @@ public class ProducerConsumer {
         for (File root : roots)
             new Thread(new FileCrawler(queue, filter, root)).start();
 
+        // System.out.println(N_CONSUMERS);
         for (int i = 0; i < N_CONSUMERS; i++)
             new Thread(new Indexer(queue)).start();
+    }
+
+    public static void main(String[] args) {
+        File[] files = new File[]{new File("E:\\111")};
+        ProducerConsumer.startIndexing(files);
     }
 }

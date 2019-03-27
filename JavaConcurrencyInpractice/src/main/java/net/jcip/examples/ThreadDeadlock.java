@@ -1,5 +1,6 @@
 package net.jcip.examples;
 
+import java.io.IOException;
 import java.util.concurrent.*;
 
 /**
@@ -10,9 +11,9 @@ import java.util.concurrent.*;
  * @author Brian Goetz and Tim Peierls
  */
 public class ThreadDeadlock {
-    ExecutorService exec = Executors.newSingleThreadExecutor();
+    static ExecutorService exec = Executors.newSingleThreadExecutor();
 
-    public class LoadFileTask implements Callable<String> {
+    public static class LoadFileTask implements Callable<String> {
         private final String fileName;
 
         public LoadFileTask(String fileName) {
@@ -21,11 +22,11 @@ public class ThreadDeadlock {
 
         public String call() throws Exception {
             // Here's where we would actually read the file
-            return "";
+            return fileName;
         }
     }
 
-    public class RenderPageTask implements Callable<String> {
+    public static class RenderPageTask implements Callable<String> {
         public String call() throws Exception {
             Future<String> header, footer;
             header = exec.submit(new LoadFileTask("header.html"));
@@ -37,7 +38,18 @@ public class ThreadDeadlock {
 
         private String renderBody() {
             // Here's where we would actually render the page
-            return "";
+            return "b";
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            Future<String> f = Executors.newSingleThreadExecutor().submit(new RenderPageTask());
+            System.out.println(f.get());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
     }
 }

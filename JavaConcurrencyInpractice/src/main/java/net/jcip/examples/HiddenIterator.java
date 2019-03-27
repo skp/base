@@ -28,4 +28,8 @@ public class HiddenIterator {
             add(r.nextInt());
         System.out.println("DEBUG: added ten elements to " + set);
     }
+
+    public static void main(String[] args) {
+        new HiddenIterator().addTenThings();
+    }
 }

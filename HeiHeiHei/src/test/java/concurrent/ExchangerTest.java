@@ -1,5 +1,8 @@
 package concurrent;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.TimeZone;
 import java.util.concurrent.Exchanger;
 /**
  * Exchanger让两个线程互换信息
@@ -34,6 +37,7 @@ public class ExchangerTest{
 
 		//喝水,假设需要10s
 		public void drinkWater(){
+			System.out.println("这杯水是" + (this.full ? "满的" : "不满"));
 			if(this.full){
 				try{
 					Thread.sleep(10000);
@@ -60,14 +64,14 @@ public class ExchangerTest{
 				try{
 					int i = 0;
 					while(i < 2){
-						System.out.println("服务生开始往杯子里倒水: " + System.currentTimeMillis());
+						System.out.println("服务生开始往杯子里倒水: " + LocalTime.now());
 						//往空的杯子里倒水
 						currentCup.addWater();
-						System.out.println("服务生添水完毕: " + System.currentTimeMillis());
+						System.out.println("服务生添水完毕: " + LocalTime.now());
 						//杯子满后和顾客的空杯子交换
-						System.out.println("服务生等待与顾客交换杯子: " + System.currentTimeMillis());
+						System.out.println("服务生等待与顾客交换杯子: " + LocalTime.now());
 						currentCup = exchanger.exchange(currentCup);
-						System.out.println("服务生与顾客交换杯子完毕: " + System.currentTimeMillis());
+						System.out.println("服务生与顾客交换杯子完毕: " + LocalTime.now());
 						i++;
 					}
 				}catch(InterruptedException ex){
@@ -82,14 +86,14 @@ public class ExchangerTest{
 				try{
 					int i = 0;
 					while(i < 2){
-						System.out.println("顾客开始喝水: " + System.currentTimeMillis());
+						System.out.println("顾客开始喝水: " + LocalTime.now());
 						//把杯子里的水喝掉
 						currentCup.drinkWater();
-						System.out.println("顾客喝水完毕: " + System.currentTimeMillis());
+						System.out.println("顾客喝水完毕: " + LocalTime.now());
 						//将空杯子和服务生的满杯子交换
-						System.out.println("顾客等待与服务生交换杯子: " + System.currentTimeMillis());
-						exchanger.exchange(currentCup);
-						System.out.println("顾客与服务生交换杯子完毕: " + System.currentTimeMillis());
+						System.out.println("顾客等待与服务生交换杯子: " + LocalTime.now());
+						currentCup = exchanger.exchange(currentCup);
+						System.out.println("顾客与服务生交换杯子完毕: " + LocalTime.now());
 						i++;
 					}
 				}catch(InterruptedException ex){

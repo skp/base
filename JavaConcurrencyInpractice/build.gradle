@@ -10,6 +10,8 @@ repositories {
 }
 
 dependencies {
-    compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
-    compile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'javax.servlet', name: 'servlet-api', version: '2.5'
+    implementation ('junit:junit:4.12') {
+//        transitive = false  // 禁止依赖传递 这个包依赖的包不会被依赖
+    }
 }
