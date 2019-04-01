@@ -12,7 +12,6 @@ public class OddEven_21 {
 	}
 
 	private static int[] orderCore2(int[] array) {
-		Stack s = new Stack();
 		int l = array.length;
 		int i = 0, j = 1;
 		while (i < l && j < l) {
@@ -20,7 +19,6 @@ public class OddEven_21 {
 				i++;
 			while (j < l && !isConditionEstablished(array, j))
 				j++;
-			s.push(array[j]);
 			if (i < j && i < l && j < l) {
 				swap(array, i, j);
 			}
